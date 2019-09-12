@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: iq-server
+  namespace: sonatype
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: iq-server
+    spec:
+      containers:
+      - image: sonatype/nexus-iq-server
+        imagePullPolicy: Always
+        name: iq-server
+        ports:
+        - containerPort: 8087
+        volumeMounts:
+          - mountPath: /sonatype-work
+            name: sonatype-work
+      volumes:
+        - name: sonatype-work
+          hostPath:
+            path: /Users/kit/Dropbox/Workspace/sonatype_k8s/sonatype-work
+            type: DirectoryOrCreate

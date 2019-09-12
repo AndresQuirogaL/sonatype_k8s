@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: iq-server-service
+  namespace: sonatype
+spec:
+  selector: 
+    app: iq-server
+  type: NodePort  
+  ports:
+    - port: 8087
+      targetPort: 8087
+      nodePort: 32087

@@ -1,0 +1,10 @@
+# Volumes
+sonatype-work/
+nexus-data/
+
+# OS files
+.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
+*~
